@@ -93,6 +93,7 @@ axes(handles.axes4)
 imshow(im)
 
 
+%convert image to grayscale
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
@@ -105,7 +106,8 @@ axes(handles.axes4);
 imshow(im);
 
 
-% --- Executes on button press in pushbutton2.
+% Convert image to negative
+% --- Executes on button press in pushbutton2. 
 function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -115,6 +117,7 @@ axes(handles.axes4);
 imshow(255-im);
 
 
+% contrast stretching
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
@@ -129,18 +132,10 @@ function pushbutton3_Callback(hObject, eventdata, handles)
  Ta = str2double(get(handles.edit2,'String'));
  b = str2double(get(handles.edit3,'String'));
  Tb = str2double(get(handles.edit4,'String'));
-% 
- disp(a);
- disp(Ta);
- disp(b);
- disp(Tb);
+
 
 %newImg = im;
 otra=im;
-
-%newImg(otra<255)=Tb + (((255-Tb)/(255-b))*(255-b));
-%newImg(otra<b)=Ta +(((Tb-Ta)/(b-a))*(b-a));
-%newImg(otra<a)=(Ta/a)*a;
 
 [rows, columns, depth]=size(im );
 
@@ -161,14 +156,11 @@ for R=1:rows
     end
 end
 
-d="kk";
-disp(d);
-
 
 axes(handles.axes4);
 imshow(otra);
 
-% 
+ 
  x_range1 = 0:a;
  x_range2 = a:b;
  x_range3 = b:255;
